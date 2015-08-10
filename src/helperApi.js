@@ -1,11 +1,9 @@
-import Praxis from './praxis';
-
+const Praxis = require('./praxis');
 const worker = require('worker!./worker.js');
 
 const getThing = () => {
-
-  const th = (new Praxis(worker));
-  return th.invoke('random')
+  return (new Praxis(worker))
+    .invoke('random')
     .then((resp) => {
       console.log('the response', resp);
     }).catch((resp) => {

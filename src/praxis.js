@@ -2,8 +2,8 @@
  * Base Praxis Constructor.
  */
 class Praxis {
-  constructor (workerClass) {
-    this.worker = new workerClass();
+  constructor (WorkerClass) {
+    this.worker = new WorkerClass();
   }
 
   invoke(methodName, ...args) {
