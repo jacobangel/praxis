@@ -2,7 +2,7 @@
 
 A method for writing webworker respects like they were normal things.
 
-```
+```js
 // Worker Helper
 const Praxis = require('./praxis');
 const worker = require('worker!./worker.js');
@@ -20,19 +20,17 @@ const getThing = () => {
 module.exports = {
   getThing,
 };
-
 ```
 
-## build
+## Build
 
 Build is done using webpack.
 
 ```sh
-npm install && npm run build
+npm install # install all modules
+npm run build # build pertinent files
+npm run test # run mocha tests
 ```
-
-## testing
-
 This run on webpack-dev-server. Start it as so:
 
 ```sh
