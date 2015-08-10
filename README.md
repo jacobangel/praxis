@@ -4,28 +4,24 @@ A method for writing webworker respects like they were normal things.
 
 ```
 // Worker Helper
-import praxis from 'praxis';
-import workerHelper from 'helper';
+const Praxis = require('./praxis');
+const worker = require('worker!./worker.js');
 
 const getThing = () => {
-
-  praxis(workerHelper)
-    .call('method')
+  return (new Praxis(worker))
+    .invoke('random')
     .then((resp) => {
-
-    }).
-    .catch((resp) => {
-
+      console.log('the response', resp);
+    }).catch((resp) => {
+      console.log('the error', resp);
     });
-}
+};
 
 module.exports = {
-  getThing
-}
+  getThing,
+};
+
 ```
-
-## Action Dispatch Between Workers
-
 
 ## build
 

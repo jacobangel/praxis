@@ -1,8 +1,8 @@
 const Praxis = require('./praxis');
-const worker = require('worker!./worker.js');
+const randomWorker = require('worker!./random.js');
 
 const getThing = () => {
-  return (new Praxis(worker))
+  return (new Praxis(randomWorker))
     .invoke('random')
     .then((resp) => {
       console.log('the response', resp);
