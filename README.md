@@ -1,12 +1,31 @@
-# Flux Workers
+# Praxis
 
-I'm sure this is already a thing. I'm just tooling around in public, which means
-some of this is likely very naive.
+A method for writing webworker respects like they were normal things.
+
+```
+// Worker Helper
+import praxis from 'praxis';
+import workerHelper from 'helper';
+
+const getThing = () => {
+
+  praxis(workerHelper)
+    .call('method')
+    .then((resp) => {
+
+    }).
+    .catch((resp) => {
+
+    });
+}
+
+module.exports = {
+  getThing
+}
+```
 
 ## Action Dispatch Between Workers
 
-Distribute the work automatically by passing the action through a worker. It's
-extremely similiar to a techniqued used in [flux-mirror](https://github.com/pstoica/flux-mirror).
 
 ## build
 
@@ -22,22 +41,4 @@ This run on webpack-dev-server. Start it as so:
 
 ```sh
 npm run serve
-```
-
-## Alternatives
-
-Promise Based solution for web-workers is probably a smarter approach?
-
-```
-// utils/ActionWorker.js
-const worker = require('worker!./Api')
-// wrap worker into promis
-// use like an axios style or fetch.
-
-const workios =-promisifiedWorker(worker).doAction()...
-
-```
-
-```
-LaggyThing.getPrime().then(this.dispatch());
 ```

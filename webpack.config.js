@@ -30,7 +30,7 @@ var reactExternal = {
 
 module.exports = {
   entry: {
-      app: './src/praxis.js'
+      app: './src/app.js'
   },
   module: {
     loaders: [
