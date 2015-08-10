@@ -1,9 +1,12 @@
+/**
+ * Base Praxis Constructor.
+ */
 class Praxis {
   constructor (workerClass) {
     this.worker = new workerClass();
   }
 
-  invoke(methodName) {
+  invoke(methodName, ...args) {
     return new Promise((resolve, reject) => {
       this.worker.onmessage = (e) => {
         console.log('getting message from worker');
@@ -16,6 +19,7 @@ class Praxis {
 
       this.worker.postMessage({
         method: methodName,
+        args,
       });
     });
   }

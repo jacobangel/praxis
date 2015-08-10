@@ -1,18 +1,21 @@
 /**
  * The actual worker dude.
  */
-const route = (e) => {
-  switch (e.method) {
-    case 'random':
+const util = {
+  random() {
+    const then = Date.now();
     setTimeout(() => {
       postMessage({
-        time: Date.now(),
+        time: Date.now() - then,
       });
-    }, (Math.random() * 100));
-    break;
-
-    default :
-    console.log('newp');
+    }, (Math.random() * 1000));
+  }
+}
+const route = (e) => {
+  try {
+    util[e.method].call(util, e.args);
+  } catch (err) {
+    console.warn('error:', err);
   }
 };
 
