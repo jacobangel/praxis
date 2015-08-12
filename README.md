@@ -1,9 +1,9 @@
 # Praxis
 
-A method for writing webworker respects like they were normal things.
+A method for writing web-workers using a Promise-based API.
 
 ```js
-// Worker Helper
+// WorkerAPI
 const Praxis = require('./praxis');
 const worker = require('worker!./worker.js');
 const getThing = () => {
@@ -16,9 +16,7 @@ const getThing = () => {
     });
 };
 
-module.exports = {
-  getThing
-};
+module.exports = { getThing };
 ```
 
 ## Build
